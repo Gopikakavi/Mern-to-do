@@ -32,6 +32,11 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use("/api/user", userRouter)
 app.use("/api/task", taskRouter)
 app.use("/api/forgotPassword", forgotPasswordRouter)
+// add this just before app.listen()
+app.get("/", (req, res) => {
+  res.send("MERN To-Do API is running...");
+});
+
 
 //listen
 app.listen(port, () => console.log(`Listening on localhost:${port}`))
